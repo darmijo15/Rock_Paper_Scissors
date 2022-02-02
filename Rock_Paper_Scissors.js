@@ -1,65 +1,105 @@
 function computerPlay() {
     const number = Math.floor(Math.random() * 3);
     if (number === 0) {
-    return 'rock';
+    return 'Rock';
     } else if (number === 1) {
-    return 'paper';
+    return 'Paper';
     } else {
-    return 'scissors';
+    return 'Scissors';
     }
 }
 
 let userScore = 0;
 let computerScore = 0;
 
-const resultDiv = document.querySelector('#result');
+const resultDiv = document.querySelector('.result');
+const userSelectionDiv = document.querySelector('#userSelection');
+const userScoreDiv = document.querySelector('#userScore');
+const computerSelectionDiv = document.querySelector('#computerSelection');
+const computerScoreDiv = document.querySelector('#computerScore');
 
 const rock = document.querySelector('#rock');
-rock.addEventListener('click', function(){playRound('rock', computerPlay())});
+rock.addEventListener('click', function(){playRound('Rock', computerPlay())});
 
 const paper = document.querySelector('#paper');
-paper.addEventListener('click', function(){playRound('paper', computerPlay())});
+paper.addEventListener('click', function(){playRound('Paper', computerPlay())});
 
 const scissors = document.querySelector('#scissors');
-scissors.addEventListener('click', function(){playRound('scissors', computerPlay())});
+scissors.addEventListener('click', function(){playRound('Scissors', computerPlay())});
 
-function playRound(playerSelection, computerSelection) {
+function playRound(userSelection, computerSelection) {
 
-    const para = document.createElement('p');
+    if (userSelection === 'Rock' && computerSelection === 'Scissors') {
+            ++userScore;
+            resultDiv.textContent = `You won this round! Rock crushes scissors.`;
+            userSelectionDiv.textContent = `${userSelection}`;
+            computerSelectionDiv.textContent = `${computerSelection}`;
+            userScoreDiv.textContent = `User: ${userScore}`;
+            computerScoreDiv.textContent = `Computer: ${computerScore}`;
 
-    if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        } else if (userSelection === 'Paper' && computerSelection === 'Rock') {
             ++userScore;
-            para.textContent = `Computer selected ${computerSelection}. You won this round! Rock crushes scissors. Score: ${userScore} - ${computerScore}`;
-        } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+            resultDiv.textContent = `You won this round! Paper covers rock.`;
+            userSelectionDiv.textContent = `${userSelection}`;
+            computerSelectionDiv.textContent = `${computerSelection}`;
+            userScoreDiv.textContent = `User: ${userScore}`;
+            computerScoreDiv.textContent = `Computer: ${computerScore}`;
+
+        } else if (userSelection === 'Scissors' && computerSelection === 'Paper') {
             ++userScore;
-            para.textContent = `Computer selected ${computerSelection}. You won this round! Paper covers rock. Score: ${userScore} - ${computerScore}`;
-        } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-            ++userScore;
-            para.textContent = `Computer selected ${computerSelection}. You won this round! Scissors cuts paper. Score: ${userScore} - ${computerScore}`;
-        } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+            resultDiv.textContent = `You won this round! Scissors cuts paper.`;
+            userSelectionDiv.textContent = `${userSelection}`;
+            computerSelectionDiv.textContent = `${computerSelection}`;
+            userScoreDiv.textContent = `User: ${userScore}`;
+            computerScoreDiv.textContent = `Compter: ${computerScore}`;
+
+
+        } else if (userSelection === 'Rock' && computerSelection === 'Paper') {
             ++computerScore;
-            para.textContent = `Computer selected ${computerSelection}. You lost this round. Paper covers rock. Score: ${userScore} - ${computerScore}`;
-        } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+
+            resultDiv.textContent = `You lost this round. Paper covers rock.`;
+            userSelectionDiv.textContent = `${userSelection}`;
+            computerSelectionDiv.textContent = `${computerSelection}`;
+            userScoreDiv.textContent = `User: ${userScore}`;
+            computerScoreDiv.textContent = `Computer: ${computerScore}`;
+
+        } else if (userSelection === 'Paper' && computerSelection === 'Scissors') {
             ++computerScore;
-            para.textContent = `Computer selected ${computerSelection}. You lost this round. Scissors cuts paper. Score: ${userScore} - ${computerScore}`;
-        } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+
+            resultDiv.textContent = `You lost this round. Scissors cuts paper.`;
+            userSelectionDiv.textContent = `${userSelection}`;
+            computerSelectionDiv.textContent = `${computerSelection}`;
+            userScoreDiv.textContent = `User: ${userScore}`;
+            computerScoreDiv.textContent = `Computer: ${computerScore}`;
+            
+        } else if (userSelection === 'Scissors' && computerSelection === 'Rock') {
             ++computerScore;
-            para.textContent = `Computer selected ${computerSelection}. You lost this round. Rock crushes scissors. Score: ${userScore} - ${computerScore}`;
+
+            resultDiv.textContent = `You lost this round. Rock crushes scissors.`;
+            userSelectionDiv.textContent = `${userSelection}`;
+            computerSelectionDiv.textContent = `${computerSelection}`;
+            userScoreDiv.textContent = `User: ${userScore}`;
+            computerScoreDiv.textContent = `Computer: ${computerScore}`;
+            
         } else {
-            para.textContent = `Computer selected ${computerSelection}. Draw, no winner this round. Score: ${userScore} - ${computerScore}`;
+
+            resultDiv.textContent = `Draw, no winner this round.`;
+            userSelectionDiv.textContent = `${userSelection}`;
+            computerSelectionDiv.textContent = `${computerSelection}`;
+            userScoreDiv.textContent = `User: ${userScore}`;
+            computerScoreDiv.textContent = `Computer: ${computerScore}`;
+            
         }
 
     if (userScore === 5) {
-        para.textContent = `You win! Final score: ${userScore} - ${computerScore}. To play another round, select rock, paper, or scissors.`;
+        resultDiv.textContent = `You win! Final score: ${userScore} - ${computerScore}. To play another round, select rock, paper, or scissors.`;
         userScore = 0;
         computerScore = 0;
     } else if (computerScore === 5) {
-        para.textContent = `You lost. Final score: ${userScore} - ${computerScore}. To play another round, select rock, paper, or scissors.`;
+        resultDiv.textContent = `You lost. Final score: ${userScore} - ${computerScore}. To play another round, select rock, paper, or scissors.`;
         userScore = 0;
         computerScore = 0;
     }
-    
-    resultDiv.appendChild(para);
 
     }
 

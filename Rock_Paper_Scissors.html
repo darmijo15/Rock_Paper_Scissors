@@ -3,16 +3,32 @@
   <head>
     <title>Rock, Paper, Scissors</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="Rock_Paper_Scissors.css" />
     <script src="Rock_Paper_Scissors.js" defer></script>
   </head>
 
   <body>
-    <div class="selection">
-      <button class="btn" id="rock">Rock</button>
-      <button class="btn" id="paper">Paper</button>
-      <button class="btn" id="scissors">Scissors</button>
+    <div class="header">Rock, Paper, Scissors</div>
+    <div class="result">
+      Choose your weapon to start the game. The first to 5 points wins the game.
     </div>
 
-    <div id="result"></div>
+    <div class="game">
+      <div class="user">
+        <div id="userSelection">Rock</div>
+        <div id="userScore">User: 0</div>
+      </div>
+
+      <div class="computer">
+        <div id="computerSelection">Scissors</div>
+        <div id="computerScore">Computer: 0</div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="rock">Rock</button>
+      <button type="button" id="paper">Paper</button>
+      <button type="button" id="scissors">Scissors</button>
+    </div>
   </body>
 </html>
