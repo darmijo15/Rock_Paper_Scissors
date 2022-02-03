@@ -22,11 +22,14 @@
 #userSelection {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
   align-items: center;
   font-size: 36px;
 }
 
 #userScore {
+  display: flex;
+  justify-content: center;
   margin-top: 6px;
   font-size: 24px;
 }
