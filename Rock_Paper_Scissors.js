@@ -27,6 +27,9 @@ paper.addEventListener('click', function(){playRound('Paper', computerPlay())});
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', function(){playRound('Scissors', computerPlay())});
 
+const reset = document.querySelector('#resetBTN');
+reset.addEventListener('click', function(){resetGame()});
+
 function playRound(userSelection, computerSelection) {
 
     if (userSelection === 'Rock' && computerSelection === 'Scissors') {
@@ -92,15 +95,24 @@ function playRound(userSelection, computerSelection) {
         }
 
     if (userScore === 5) {
-        resultDiv.textContent = `You win! Final score: ${userScore} - ${computerScore}. To play another round, select rock, paper, or scissors.`;
+        resultDiv.textContent = `You win! Final score: ${userScore} - ${computerScore}. To play another round, press the reset button or select a weapon.`;
         userScore = 0;
         computerScore = 0;
     } else if (computerScore === 5) {
-        resultDiv.textContent = `You lost. Final score: ${userScore} - ${computerScore}. To play another round, select rock, paper, or scissors.`;
+        resultDiv.textContent = `You lost. Final score: ${userScore} - ${computerScore}. To play another round, press the reset button or select a weapon.`;
         userScore = 0;
         computerScore = 0;
     }
 
+    }
+
+    function resetGame() {
+        userScore = 0;
+        computerScore = 0;
+
+        resultDiv.textContent = 'Choose your weapon to start the game. The first to 5 points wins the game.';
+        userScoreDiv.textContent = `User: ${userScore}`;
+        computerScoreDiv.textContent = `Computer: ${computerScore}`;
     }
 
 // function game() {
