@@ -115,21 +115,3 @@ function playRound(userSelection, computerSelection) {
         computerScoreDiv.textContent = `Computer: ${computerScore}`;
     }
 
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         let playerSelection = prompt("Rock, paper, or scissors?");
-//         playerSelection = playerSelection.toLowerCase();
-//         const computerSelection = computerPlay();
-//         console.log(playRound(playerSelection, computerSelection));
-//     }
-
-//     if (userScore > computerScore) {
-//         console.log(`You won! Final score: ${userScore} - ${computerScore}`);
-//     } else if (userScore < computerScore) {
-//         console.log(`You lose. Final score: ${userScore} - ${computerScore}`);
-//     } else {
-//         console.log(`Draw, no winner declared. Final Score: ${userScore} - ${computerScore}`);
-//     }
-// }
-
-// game();
