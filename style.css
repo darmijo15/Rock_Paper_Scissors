@@ -89,3 +89,7 @@ button {
   background-color: #fdfdfd;
   color: #333;
 }
+
+button:hover {
+  transform: scale(1.1);
+}
