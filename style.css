@@ -78,8 +78,6 @@ body {
 
 #resetBTN {
   font-size: 28px;
-  background-color: #fafafa;
-  color: #333;
 }
 
 button {
@@ -92,4 +90,6 @@ button {
 
 button:hover {
   transform: scale(1.1);
+  background-color: #333;
+  color: #fafafa;
 }
